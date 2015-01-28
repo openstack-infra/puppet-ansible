@@ -20,9 +20,9 @@ class ansible (
 
   file { '/etc/ansible/ansible.cfg':
     ensure  => present,
-    mode   => '0644',
-    owner  => 'root',
-    group  => 'root',
+    mode    => '0644',
+    owner   => 'root',
+    group   => 'root',
     content => template('ansible/ansible.cfg.erb'),
     require => File['/etc/ansible'],
   }
