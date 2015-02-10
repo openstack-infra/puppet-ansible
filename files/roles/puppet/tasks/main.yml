@@ -2,3 +2,4 @@
 - name: run puppet
   puppet:
     puppetmaster: "{{puppetmaster}}"
+    project_config_ref: "{{ansible_env.PROJECT_CONFIG_REF}}"

@@ -40,6 +40,11 @@ options:
     required: false
     default: no
     choices: [ "yes", "no" ]
+  project_config_ref:
+    description:
+      - The git ref to checkout puppet-project-config at.
+    required: false
+    default: master
 requirements: [ puppet ]
 author: Monty Taylor
 '''
@@ -60,6 +65,7 @@ def main():
             puppetmaster=dict(required=True),
             show_diff=dict(
                 default=False, aliases=['show-diff'], type='bool'),
+            project_config_ref=dict(default="master"),
         ),
     )
     p = module.params
@@ -71,11 +77,14 @@ def main():
         module.fail_json(
             msg="Could not find puppet. Please ensure it is installed.")
 
-    cmd = ("timeout -s 9 %(timeout)s %(puppet_cmd)s agent --onetime"
-           " --server %(puppetmaster)s"
+    cmd = ("timeout -s 9 %(timeout)s"
+           " FACTER_project_config_ref=%(project_config_ref)"
+           " %(puppet_cmd)s agent "
+           " --onetime --server %(puppetmaster)s"
            " --ignorecache --no-daemonize --no-usecacheonfailure --no-splay"
            " --detailed-exitcodes --verbose") % dict(
-               timeout=pipes.quote(p['timeout']), puppet_cmd=PUPPET_CMD,
+               timeout=pipes.quote(p['timeout']),
+               project_config_ref=project_config_ref, puppet_cmd=PUPPET_CMD,
                puppetmaster=pipes.quote(p['puppetmaster']))
     if p['show_diff']:
         cmd += " --show-diff"
