@@ -1,7 +1,8 @@
 # == Class: ansible
 #
 class ansible (
-  $ansible_hostfile = '/usr/local/bin/puppet-inventory'
+  $ansible_hostfile = '/usr/local/bin/puppet-inventory',
+  $ansible_roles_path = '/etc/ansible/roles'
 ) {
 
   include logrotate
@@ -33,18 +34,6 @@ class ansible (
     owner  => 'root',
     group  => 'root',
     source => 'puppet:///modules/ansible/puppet-inventory',
-  }
-
-  file { '/etc/ansible/roles':
-    ensure  => directory,
-    recurse => true,
-    source  => 'puppet:///modules/ansible/roles',
-    require => File['/etc/ansible'],
-  }
-
-  file { '/etc/ansible/library':
-    ensure  => absent,
-    force   => true,
   }
 
   include logrotate
