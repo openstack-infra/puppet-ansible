@@ -44,6 +44,7 @@ class ansible (
 
   file { '/etc/ansible/library':
     ensure  => absent,
+    force   => true,
   }
 
   include logrotate
