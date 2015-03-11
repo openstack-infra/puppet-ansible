@@ -2,7 +2,8 @@
 #
 class ansible (
   $ansible_hostfile = '/usr/local/bin/puppet-inventory',
-  $ansible_roles_path = '/etc/ansible/roles'
+  $ansible_roles_path = '/etc/ansible/roles',
+  $ansible_hash_behavior = 'merge'
 ) {
 
   include logrotate
