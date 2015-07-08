@@ -5,8 +5,8 @@ class ansible (
   $ansible_roles_path = '/etc/ansible/roles'
 ) {
 
-  include logrotate
-  include pip
+  include ::logrotate
+  include ::pip
 
   package { 'ansible':
     ensure   => latest,
@@ -36,8 +36,7 @@ class ansible (
     source => 'puppet:///modules/ansible/puppet-inventory',
   }
 
-  include logrotate
-  logrotate::file { 'ansible':
+  ::logrotate::file { 'ansible':
     log     => '/var/log/ansible.log',
     options => [
       'compress',
