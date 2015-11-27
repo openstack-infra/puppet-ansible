@@ -1,7 +1,7 @@
 # == Class: ansible
 #
 class ansible (
-  $ansible_hostfile = '/usr/local/bin/puppet-inventory',
+  $ansible_hostfile = '/etc/ansible/hosts',
   $ansible_roles_path = '/etc/ansible/roles'
 ) {
 
@@ -29,11 +29,7 @@ class ansible (
   }
 
   file { '/usr/local/bin/puppet-inventory':
-    ensure => present,
-    mode   => '0755',
-    owner  => 'root',
-    group  => 'root',
-    source => 'puppet:///modules/ansible/puppet-inventory',
+    ensure => absent,
   }
 
   ::logrotate::file { 'ansible':
