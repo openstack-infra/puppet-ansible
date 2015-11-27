@@ -28,10 +28,6 @@ class ansible (
     require => File['/etc/ansible'],
   }
 
-  file { '/usr/local/bin/puppet-inventory':
-    ensure => absent,
-  }
-
   ::logrotate::file { 'ansible':
     log     => '/var/log/ansible.log',
     options => [
