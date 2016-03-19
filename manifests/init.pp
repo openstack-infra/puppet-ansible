@@ -1,8 +1,8 @@
 # == Class: ansible
 #
 class ansible (
-  $ansible_hostfile = '/etc/ansible/hosts',
-  $ansible_roles_path = '/etc/ansible/roles'
+  $ansible_hostfile   = '/etc/ansible/hosts',
+  $ansible_roles_path = '/etc/ansible/roles',
 ) {
 
   include ::logrotate
