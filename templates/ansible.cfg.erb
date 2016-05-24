@@ -3,3 +3,9 @@ hostfile=<%= @ansible_hostfile %>
 library=/usr/share/ansible
 log_path=/var/log/ansible.log
 roles_path=<%= @ansible_roles_path %>
+<% if @retry_files_enabled != "" -%>
+retry_files_enabled=<%= @retry_files_enabled %>
+<% end -%>
+<% if @retry_files_save_path != "" -%>
+retry_files_save_path=<%= @retry_files_save_path %>
+<% end -%>
