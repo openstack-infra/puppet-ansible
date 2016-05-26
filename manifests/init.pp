@@ -9,7 +9,7 @@ class ansible (
   include ::pip
 
   package { 'ansible':
-    ensure   => latest,
+    ensure   => '2.0.2.0',
     provider => pip,
   }
 
