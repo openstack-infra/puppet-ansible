@@ -10,7 +10,7 @@ class ansible (
 
   package { 'ansible':
     ensure   => '2.0.2.0',
-    provider => pip,
+    provider => openstack_pip,
   }
 
   if ! defined(File['/etc/ansible']) {
