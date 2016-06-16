@@ -1,0 +1,10 @@
+Code-Review+2: Monty Taylor <mordred@inaugust.com>
+Code-Review+1: matthew wagoner <zxkuqyb@gmail.com>
+Code-Review+2: Spencer Krum <nibz@spencerkrum.com>
+Workflow+1: Spencer Krum <nibz@spencerkrum.com>
+Verified+2: Jenkins
+Submitted-by: Jenkins
+Submitted-at: Thu, 16 Jun 2016 21:25:05 +0000
+Reviewed-on: https://review.openstack.org/330589
+Project: openstack-infra/puppet-ansible
+Branch: refs/heads/master
