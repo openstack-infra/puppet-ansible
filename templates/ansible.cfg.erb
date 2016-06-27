@@ -3,3 +3,6 @@ hostfile=<%= @ansible_hostfile %>
 library=/usr/share/ansible
 log_path=/var/log/ansible.log
 roles_path=<%= @ansible_roles_path %>
+
+[ssh_connection]
+pipelining = True
