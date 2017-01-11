@@ -4,6 +4,7 @@ class ansible (
   $ansible_hostfile      = '/etc/ansible/hosts',
   $ansible_roles_path    = '/etc/ansible/roles',
   $ansible_version       = '2.0.2.0',
+  $ansible_source        = undef,
   $retry_files_enabled   = undef,
   $retry_files_save_path = undef,
 ) {
@@ -13,6 +14,7 @@ class ansible (
 
   package { 'ansible':
     ensure   => $ansible_version,
+    source   => $ansible_source,
     provider => openstack_pip,
   }
 
