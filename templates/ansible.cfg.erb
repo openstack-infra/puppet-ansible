@@ -9,3 +9,6 @@ retry_files_enabled=<%= @retry_files_enabled %>
 <% if @retry_files_save_path != :undef -%>
 retry_files_save_path=<%= @retry_files_save_path %>
 <% end -%>
+
+[ssh_connection]
+pipelining = True
