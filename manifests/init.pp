@@ -1,12 +1,13 @@
 # == Class: ansible
 #
 class ansible (
-  $ansible_hostfile      = '/etc/ansible/hosts',
-  $ansible_roles_path    = '/etc/ansible/roles',
-  $ansible_version       = '2.0.2.0',
-  $ansible_source        = undef,
-  $retry_files_enabled   = undef,
-  $retry_files_save_path = undef,
+  $ansible_hostfile              = '/etc/ansible/hosts',
+  $ansible_roles_path            = '/etc/ansible/roles',
+  $ansible_callback_plugins_path = '/etc/ansible/callback_plugins',
+  $ansible_version               = '2.0.2.0',
+  $ansible_source                = undef,
+  $retry_files_enabled           = undef,
+  $retry_files_save_path         = undef,
 ) {
 
   include ::logrotate
@@ -21,6 +22,12 @@ class ansible (
   if ! defined(File['/etc/ansible']) {
     file { '/etc/ansible':
       ensure  => directory,
+    }
+  }
+  if ! defined(File["$ansible_callback_plugins_path"]) {
+    file {"$ansible_callback_plugins_path":
+      ensure => directory,
+      require => File['/etc/ansible'],
     }
   }
 
