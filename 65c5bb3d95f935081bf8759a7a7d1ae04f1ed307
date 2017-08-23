@@ -1,0 +1,8 @@
+Code-Review+2: Clark Boylan <cboylan@sapwetik.org>
+Workflow+1: Clark Boylan <cboylan@sapwetik.org>
+Verified+2: Jenkins
+Submitted-by: Jenkins
+Submitted-at: Wed, 23 Aug 2017 07:49:28 +0000
+Reviewed-on: https://review.openstack.org/495420
+Project: openstack-infra/puppet-ansible
+Branch: refs/heads/master
