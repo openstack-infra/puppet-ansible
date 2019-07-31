@@ -1,12 +1,3 @@
-# OpenStack Ansible Module
+# This repo has moved to OpenDev
 
-## Overview
-
-Configures Ansible.
-
-## Run Tests 
-
-````
-bundle install
-bundle exec rspec
-````
+It can now be found at [https://opendev.org/opendev/puppet-ansible](https://opendev.org/opendev/puppet-ansible)
